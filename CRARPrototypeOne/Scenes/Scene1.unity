@@ -424,12 +424,12 @@ MonoBehaviour:
   virtualButton: {fileID: 195340986}
   outputText: {fileID: 1981981349}
   charVirtualButton: 49
+  curStateVirtualButton: 0
   OnGoalChangeText:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  curStateVirtualButton: 0
 --- !u!1 &236716500
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,6 +492,80 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &286713966
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 286713967}
+  - component: {fileID: 286713969}
+  - component: {fileID: 286713968}
+  m_Layer: 0
+  m_Name: PinCodeText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &286713967
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 286713966}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 779727018}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 65.7, y: -27.8}
+  m_SizeDelta: {x: 344.8, y: 171.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &286713968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 286713966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 130
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 130
+    m_Alignment: 3
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '****'
+--- !u!222 &286713969
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 286713966}
 --- !u!1 &345702089
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,12 +615,12 @@ MonoBehaviour:
   virtualButton: {fileID: 345702089}
   outputText: {fileID: 1981981349}
   charVirtualButton: 56
+  curStateVirtualButton: 0
   OnGoalChangeText:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  curStateVirtualButton: 0
 --- !u!33 &345702092
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -860,12 +934,12 @@ MonoBehaviour:
   virtualButton: {fileID: 424464727}
   outputText: {fileID: 1981981349}
   charVirtualButton: 52
+  curStateVirtualButton: 0
   OnGoalChangeText:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  curStateVirtualButton: 0
 --- !u!33 &424464730
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -999,12 +1073,12 @@ MonoBehaviour:
   virtualButton: {fileID: 458022886}
   outputText: {fileID: 1981981349}
   charVirtualButton: 45
+  curStateVirtualButton: 1
   OnGoalChangeText:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  curStateVirtualButton: 1
 --- !u!33 &458022889
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1638,6 +1712,75 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 757369892}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &779727017
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 779727018}
+  - component: {fileID: 779727020}
+  - component: {fileID: 779727019}
+  m_Layer: 0
+  m_Name: OutputPinCodePanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &779727018
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 779727017}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 286713967}
+  m_Father: {fileID: 974212387}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -200, y: -50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &779727019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 779727017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.734}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &779727020
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 779727017}
 --- !u!1 &825656319
 GameObject:
   m_ObjectHideFlags: 0
@@ -1687,12 +1830,12 @@ MonoBehaviour:
   virtualButton: {fileID: 825656319}
   outputText: {fileID: 1981981349}
   charVirtualButton: 53
+  curStateVirtualButton: 0
   OnGoalChangeText:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  curStateVirtualButton: 0
 --- !u!33 &825656322
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2350,6 +2493,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1981981348}
+  - {fileID: 974212387}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2358,6 +2502,75 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &974212386
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 974212387}
+  - component: {fileID: 974212389}
+  - component: {fileID: 974212388}
+  m_Layer: 0
+  m_Name: PinCodePanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &974212387
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 974212386}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 779727018}
+  m_Father: {fileID: 972539251}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 480, y: 125}
+  m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &974212388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 974212386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.25253546, g: 0.014705896, b: 1, a: 0.342}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &974212389
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 974212386}
 --- !u!1 &1005149883
 GameObject:
   m_ObjectHideFlags: 0
@@ -2416,9 +2629,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outputTextDisplay: {fileID: 1981981349}
+  pinCodeText: {fileID: 286713968}
   virtualButtonLists:
   - {fileID: 1538781715}
   - {fileID: 195340986}
+  - {fileID: 1652476132}
+  - {fileID: 1120349626}
+  - {fileID: 424464727}
+  - {fileID: 825656319}
+  - {fileID: 1409857756}
+  - {fileID: 1170050133}
+  - {fileID: 345702089}
+  - {fileID: 1780478341}
+  - {fileID: 458022886}
 --- !u!1 &1040091868
 GameObject:
   m_ObjectHideFlags: 0
@@ -2687,12 +2910,12 @@ MonoBehaviour:
   virtualButton: {fileID: 1120349626}
   outputText: {fileID: 1981981349}
   charVirtualButton: 51
+  curStateVirtualButton: 0
   OnGoalChangeText:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  curStateVirtualButton: 0
 --- !u!33 &1120349629
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2826,12 +3049,12 @@ MonoBehaviour:
   virtualButton: {fileID: 1170050133}
   outputText: {fileID: 1981981349}
   charVirtualButton: 55
+  curStateVirtualButton: 0
   OnGoalChangeText:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  curStateVirtualButton: 0
 --- !u!33 &1170050136
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3140,12 +3363,12 @@ MonoBehaviour:
   virtualButton: {fileID: 1409857756}
   outputText: {fileID: 1981981349}
   charVirtualButton: 54
+  curStateVirtualButton: 0
   OnGoalChangeText:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  curStateVirtualButton: 0
 --- !u!33 &1409857759
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3369,12 +3592,12 @@ MonoBehaviour:
   virtualButton: {fileID: 1538781715}
   outputText: {fileID: 1981981349}
   charVirtualButton: 48
+  curStateVirtualButton: 0
   OnGoalChangeText:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  curStateVirtualButton: 0
 --- !u!1 &1556949506
 GameObject:
   m_ObjectHideFlags: 0
@@ -3510,12 +3733,12 @@ MonoBehaviour:
   virtualButton: {fileID: 1652476132}
   outputText: {fileID: 1981981349}
   charVirtualButton: 50
+  curStateVirtualButton: 0
   OnGoalChangeText:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  curStateVirtualButton: 0
 --- !u!33 &1652476135
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3910,12 +4133,12 @@ MonoBehaviour:
   virtualButton: {fileID: 1780478341}
   outputText: {fileID: 1981981349}
   charVirtualButton: 57
+  curStateVirtualButton: 0
   OnGoalChangeText:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  curStateVirtualButton: 0
 --- !u!33 &1780478344
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -4209,8 +4432,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.1, y: 200.9}
-  m_SizeDelta: {x: 453, y: 279.4}
+  m_AnchoredPosition: {x: -8.775, y: 143.5}
+  m_SizeDelta: {x: 462.45, y: 165.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1981981349
 MonoBehaviour:
@@ -4245,7 +4468,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: None
+  m_Text: 
 --- !u!222 &1981981350
 CanvasRenderer:
   m_ObjectHideFlags: 0

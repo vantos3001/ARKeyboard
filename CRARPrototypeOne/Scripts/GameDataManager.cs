@@ -15,6 +15,7 @@ public class GameDataManager : MonoBehaviour {
 
     public void SubmitNewOutputText(Text newOutputText)
     {
+		Debug.Log ("submit bigin");
         if (newOutputText.text.Length > 18)
         {
             playerProgress.outputString = "None";
@@ -25,6 +26,7 @@ public class GameDataManager : MonoBehaviour {
         {
             playerProgress.outputString = newOutputText.text;
             SavePlayerProgress();
+			Debug.Log ("second submit choice");
         }
     }
     public string GetOutputString()

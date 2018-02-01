@@ -11,11 +11,17 @@ public enum VirtualButtonState { ADD, DELETE, CHECK }
 public class VirtualButtonHandler : MonoBehaviour, IVirtualButtonEventHandler {
     public GameObject virtualButton;
     public Text outputText;
+
     public char charVirtualButton;
+
+	public VirtualButtonState curStateVirtualButton = VirtualButtonState.ADD;
 
     public UnityEvent OnGoalChangeText;
 
-	public VirtualButtonState curStateVirtualButton = VirtualButtonState.ADD;
+
+
+	// maximum length of pin code
+	private int maxLengthOutputText = 4;
 
     // Use this for initialization
 
@@ -26,28 +32,31 @@ public class VirtualButtonHandler : MonoBehaviour, IVirtualButtonEventHandler {
 	
 	public void OnButtonPressed(VirtualButtonBehaviour vb)
     {
+		// length of current string
+		int length = outputText.text.Length;
 		switch (curStateVirtualButton) {
 
 		case VirtualButtonState.ADD:
-			if (outputText.text == "None") {
-				outputText.text = "Lol";
-				OnGoalChangeText.Invoke ();
-				return;
-			} else {
+			// check 
+			if ( length < maxLengthOutputText) {
 
 				outputText.text = outputText.text + charVirtualButton.ToString ();
 
 			}
+
 			break;
 		case VirtualButtonState.DELETE:
-			int length = outputText.text.Length;
-			if (length >0)
+			if (length > 0) {
 				outputText.text = outputText.text.Substring (0, length - 1);
+			}
+			Debug.Log ("Invoke in switch");
 			break;
 
 		}
-        
-        OnGoalChangeText.Invoke(); 
+        // DON'T FOGGET TO ADD YOUR VIRTUAL BUTTON 
+		// TO LIST IN GAME MANAGER!!!
+        OnGoalChangeText.Invoke();
+		Debug.Log ("Invoke after switch");
     }
 
     public void OnButtonReleased(VirtualButtonBehaviour vb)
