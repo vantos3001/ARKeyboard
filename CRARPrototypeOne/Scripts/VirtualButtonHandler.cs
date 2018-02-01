@@ -14,14 +14,27 @@ public class VirtualButtonHandler : MonoBehaviour, IVirtualButtonEventHandler {
 
     public char charVirtualButton;
 
-	public VirtualButtonState curStateVirtualButton = VirtualButtonState.ADD;
+	[SerializeField]
+	private VirtualButtonState curStateVirtualButton = VirtualButtonState.ADD;
 
     public UnityEvent OnGoalChangeText;
+
+	public UnityEvent OnGoalRightPinCode;
+	public UnityEvent OnGoalWrongPinCode;
 
 
 
 	// maximum length of pin code
 	private int maxLengthOutputText = 4;
+
+	#region Properties
+	public VirtualButtonState CurStateVirtualButton{
+
+		get {return curStateVirtualButton; }
+	}
+
+
+	#endregion
 
     // Use this for initialization
 
@@ -50,6 +63,14 @@ public class VirtualButtonHandler : MonoBehaviour, IVirtualButtonEventHandler {
 				outputText.text = outputText.text.Substring (0, length - 1);
 			}
 			Debug.Log ("Invoke in switch");
+			break;
+		case VirtualButtonState.CHECK:
+			if (GameController.Password == outputText.text)
+				OnGoalRightPinCode.Invoke();
+			else {
+			
+				OnGoalWrongPinCode.Invoke();
+			}
 			break;
 
 		}

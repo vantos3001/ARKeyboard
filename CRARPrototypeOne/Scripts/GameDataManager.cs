@@ -49,6 +49,14 @@ public class GameDataManager : MonoBehaviour {
     {
         PlayerPrefs.SetString("outputString", playerProgress.outputString);
     }
+
+	public static string LoadAssetText(TextAsset textAsset){
+		string password = null;
+		password = textAsset.text;
+		Debug.Log ("password: " + password);
+
+		return password;
+	}
 	
 	
 }

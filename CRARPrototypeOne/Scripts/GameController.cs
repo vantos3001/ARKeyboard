@@ -13,7 +13,20 @@ public class GameController : MonoBehaviour {
 	public Text pinCodeText;
     private GameDataManager gameDataManager;
 
-     public GameObject[] virtualButtonLists;
+    public GameObject[] virtualButtonLists;
+
+	public TextAsset textAsset;
+
+	private static string password;
+
+	#region Properties
+	public static string Password{
+		get { return password;}
+
+	}
+
+
+	#endregion
 
     //private VirtualButtonHandler virtualButtonHandlerLists;
 	// Use this for initialization
@@ -21,16 +34,20 @@ public class GameController : MonoBehaviour {
         gameDataManager = FindObjectOfType<GameDataManager>();
         outputTextDisplay.text = gameDataManager.GetOutputString();
 		ChangePinCodeText ();
+		password = GameDataManager.LoadAssetText (textAsset);
+
+
 		// DON'T FOGGET TO ADD YOUR VIRTUAL BUTTON 
 		// TO LIST IN GAME MANAGER!!!
         foreach (GameObject vb in virtualButtonLists)
         {
             VirtualButtonHandler vbt = vb.GetComponent<VirtualButtonHandler>();
-            //VirtualButtonBehaviour vbh = vb.GetComponent<VirtualButtonBehaviour>();
-            //vb.VirtualButtonHandler.OnButtonPressed(vb.VirtualButtonBehaviour).AddListener(OnGoalChangeText);
-            //vbt.OnButtonPressed(vbh).AddListener(OnGoalChangeText);
-            //vbt.OnGoalChangeText.AddListener(ChangeText);
             vbt.OnGoalChangeText.AddListener(ChangeText);
+			if (vbt.CurStateVirtualButton == VirtualButtonState.CHECK) {
+				vbt.OnGoalRightPinCode.AddListener (RightPinCode);
+				vbt.OnGoalWrongPinCode.AddListener (WrongPinCode);
+			
+			}
         }
 
 
@@ -64,4 +81,24 @@ public class GameController : MonoBehaviour {
 		pinCodeText.text = strStars;
 
 	}
+
+	void RightPinCode(){
+		outputTextDisplay.text = "RIGHT!";
+		Invoke ("ClearOutPutTextDisplay", 1.5f);
+	}
+
+	void WrongPinCode(){
+		outputTextDisplay.text = "WRONG!";
+		Invoke ("ClearOutPutTextDisplay", 1.5f);
+		Debug.Log ("WrongPinCode");
+	}
+
+	void ClearOutPutTextDisplay(){
+		outputTextDisplay.text = "Lol";
+		pinCodeText.text = "Lol";
+		Debug.Log ("ClearOutPutTextDisplay");
+	}
+
+
+
 }
