@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Vuforia;
 
+// Stable version 0.2
 
 
 public class GameController : MonoBehaviour {
