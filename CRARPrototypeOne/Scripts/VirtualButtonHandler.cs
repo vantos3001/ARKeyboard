@@ -6,12 +6,16 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using Vuforia;
 
+public enum VirtualButtonState { ADD, DELETE, CHECK }
+
 public class VirtualButtonHandler : MonoBehaviour, IVirtualButtonEventHandler {
     public GameObject virtualButton;
     public Text outputText;
     public char charVirtualButton;
 
     public UnityEvent OnGoalChangeText;
+
+	public VirtualButtonState curStateVirtualButton = VirtualButtonState.ADD;
 
     // Use this for initialization
 
@@ -22,19 +26,27 @@ public class VirtualButtonHandler : MonoBehaviour, IVirtualButtonEventHandler {
 	
 	public void OnButtonPressed(VirtualButtonBehaviour vb)
     {
+		switch (curStateVirtualButton) {
 
-        if (outputText.text == "None")
-        {
-            outputText.text = "Lol";
-            OnGoalChangeText.Invoke();
-            return;
-        }
-        else
-        {
+		case VirtualButtonState.ADD:
+			if (outputText.text == "None") {
+				outputText.text = "Lol";
+				OnGoalChangeText.Invoke ();
+				return;
+			} else {
 
-            outputText.text = outputText.text + charVirtualButton.ToString();
-            
-        }
+				outputText.text = outputText.text + charVirtualButton.ToString ();
+
+			}
+			break;
+		case VirtualButtonState.DELETE:
+			int length = outputText.text.Length;
+			if (length >0)
+				outputText.text = outputText.text.Substring (0, length - 1);
+			break;
+
+		}
+        
         OnGoalChangeText.Invoke(); 
     }
 
