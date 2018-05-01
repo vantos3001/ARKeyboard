@@ -44,9 +44,10 @@ public class GameController : MonoBehaviour {
             VirtualButtonHandler vbt = vb.GetComponent<VirtualButtonHandler>();
             vbt.OnGoalChangeText.AddListener(ChangeText);
 			if (vbt.CurStateVirtualButton == VirtualButtonState.CHECK) {
-				vbt.OnGoalRightPinCode.AddListener (RightPinCode);
-				vbt.OnGoalWrongPinCode.AddListener (WrongPinCode);
-			
+				//vbt.OnGoalRightPinCode.AddListener (RightPinCode);
+				//vbt.OnGoalWrongPinCode.AddListener (WrongPinCode);
+				vbt.OnCheckPinCode += CheckPinCode;
+
 			}
         }
 
@@ -82,18 +83,24 @@ public class GameController : MonoBehaviour {
 
 	}
 
-	void RightPinCode(){
-		outputTextDisplay.text = "RIGHT!";
+//	private void RightPinCode(){
+//		outputTextDisplay.text = "RIGHT!";
+//		Invoke ("ClearOutPutTextDisplay", 1.5f);
+//	}
+
+//	private void WrongPinCode(){
+//		outputTextDisplay.text = "WRONG!";
+//		Invoke ("ClearOutPutTextDisplay", 1.5f);
+//		Debug.Log ("WrongPinCode");
+//	}
+
+	private void CheckPinCode(bool isRightCode)
+	{
+		outputTextDisplay.text = isRightCode ? "RIGHT!" : "WRONG!";
 		Invoke ("ClearOutPutTextDisplay", 1.5f);
 	}
 
-	void WrongPinCode(){
-		outputTextDisplay.text = "WRONG!";
-		Invoke ("ClearOutPutTextDisplay", 1.5f);
-		Debug.Log ("WrongPinCode");
-	}
-
-	void ClearOutPutTextDisplay(){
+	private void ClearOutPutTextDisplay(){
 		outputTextDisplay.text = "Lol";
 		pinCodeText.text = "Lol";
 		Debug.Log ("ClearOutPutTextDisplay");

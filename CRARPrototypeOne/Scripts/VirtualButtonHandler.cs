@@ -19,8 +19,9 @@ public class VirtualButtonHandler : MonoBehaviour, IVirtualButtonEventHandler {
 
     public UnityEvent OnGoalChangeText;
 
-	public UnityEvent OnGoalRightPinCode;
-	public UnityEvent OnGoalWrongPinCode;
+	//public UnityEvent OnGoalRightPinCode;
+	//public UnityEvent OnGoalWrongPinCode;
+	public Action<bool> OnCheckPinCode;
 
 
 
@@ -62,14 +63,15 @@ public class VirtualButtonHandler : MonoBehaviour, IVirtualButtonEventHandler {
 			if (length > 0) {
 				outputText.text = outputText.text.Substring (0, length - 1);
 			}
-			Debug.Log ("Invoke in switch");
+			//Debug.Log ("Invoke in switch");
 			break;
 		case VirtualButtonState.CHECK:
 			if (GameController.Password == outputText.text)
-				OnGoalRightPinCode.Invoke();
+				OnCheckPinCode.Invoke(true);
+				//OnGoalRightPinCode.Invoke();
 			else {
-			
-				OnGoalWrongPinCode.Invoke();
+				OnCheckPinCode.Invoke(false);
+				//OnGoalWrongPinCode.Invoke();
 			}
 			break;
 
@@ -77,7 +79,7 @@ public class VirtualButtonHandler : MonoBehaviour, IVirtualButtonEventHandler {
         // DON'T FOGGET TO ADD YOUR VIRTUAL BUTTON 
 		// TO LIST IN GAME MANAGER!!!
         OnGoalChangeText.Invoke();
-		Debug.Log ("Invoke after switch");
+		//Debug.Log ("Invoke after switch");
     }
 
     public void OnButtonReleased(VirtualButtonBehaviour vb)

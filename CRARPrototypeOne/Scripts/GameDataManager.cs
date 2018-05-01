@@ -51,8 +51,7 @@ public class GameDataManager : MonoBehaviour {
     }
 
 	public static string LoadAssetText(TextAsset textAsset){
-		string password = null;
-		password = textAsset.text;
+		var password = textAsset.text;
 		Debug.Log ("password: " + password);
 
 		return password;
