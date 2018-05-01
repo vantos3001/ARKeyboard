@@ -9,6 +9,7 @@ using Vuforia;
 public class GameController : MonoBehaviour {
 
     public Text outputTextDisplay;
+	public Text errorTextDisplay;
 	// for outpitting '*'
 	public Text pinCodeText;
     private GameDataManager gameDataManager;
@@ -17,11 +18,13 @@ public class GameController : MonoBehaviour {
 
 	public TextAsset textAsset;
 
-	private static string password;
+	private static string _password;
+
+	private DownloadManager downloadManager;
 
 	#region Properties
 	public static string Password{
-		get { return password;}
+		get { return _password;}
 
 	}
 
@@ -31,11 +34,14 @@ public class GameController : MonoBehaviour {
     //private VirtualButtonHandler virtualButtonHandlerLists;
 	// Use this for initialization
 	private void Start () {
+		downloadManager = FindObjectOfType<DownloadManager>();
         gameDataManager = FindObjectOfType<GameDataManager>();
         outputTextDisplay.text = gameDataManager.GetOutputString();
 		ChangePinCodeText ();
-		password = GameDataManager.LoadAssetText (textAsset);
 
+		Invoke("ChangeToDownloadPassword", 3f);
+		
+		_password = GameDataManager.LoadAssetText (textAsset);
 
 		// DON'T FOGGET TO ADD YOUR VIRTUAL BUTTON 
 		// TO LIST IN GAME MANAGER!!!
@@ -82,7 +88,34 @@ public class GameController : MonoBehaviour {
 	}
 
 	private void ClearOutPutTextDisplay(){
-		outputTextDisplay.text = "Lol";
-		pinCodeText.text = "Lol";
+		outputTextDisplay.text = "1234";
+		pinCodeText.text = "1234";
+	}
+
+	private void ChangeToDownloadPassword()
+	{
+		var downloadPassword = downloadManager.DownloadPassword;
+		if (string.IsNullOrEmpty(downloadPassword))
+		{
+			return;
+		}
+		
+		if (CheckCorrectPassword(downloadPassword))
+		{
+			_password = downloadPassword;
+		}
+		else
+		{
+			if(string.IsNullOrEmpty(errorTextDisplay.text))
+			{
+				errorTextDisplay.text = "Wrong Internet Password. Input default password";
+			}
+		}
+	}
+	
+	private bool CheckCorrectPassword(string password)
+	{
+			int fictiveNumber;
+			return password.Length == 4 && int.TryParse(password, out fictiveNumber) ;
 	}
 }
