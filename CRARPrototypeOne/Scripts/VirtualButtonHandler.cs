@@ -18,14 +18,10 @@ public class VirtualButtonHandler : MonoBehaviour, IVirtualButtonEventHandler {
 	private VirtualButtonState curStateVirtualButton = VirtualButtonState.ADD;
 
     public UnityEvent OnGoalChangeText;
-
-	public UnityEvent OnGoalRightPinCode;
-	public UnityEvent OnGoalWrongPinCode;
-
-
+	public Action<bool> OnCheckPinCode;
 
 	// maximum length of pin code
-	private int maxLengthOutputText = 4;
+	private readonly int maxLengthOutputText = 4;
 
 	#region Properties
 	public VirtualButtonState CurStateVirtualButton{
@@ -48,41 +44,26 @@ public class VirtualButtonHandler : MonoBehaviour, IVirtualButtonEventHandler {
 		// length of current string
 		int length = outputText.text.Length;
 		switch (curStateVirtualButton) {
-
 		case VirtualButtonState.ADD:
 			// check 
 			if ( length < maxLengthOutputText) {
-
 				outputText.text = outputText.text + charVirtualButton.ToString ();
-
 			}
-
 			break;
 		case VirtualButtonState.DELETE:
 			if (length > 0) {
 				outputText.text = outputText.text.Substring (0, length - 1);
 			}
-			Debug.Log ("Invoke in switch");
 			break;
 		case VirtualButtonState.CHECK:
-			if (GameController.Password == outputText.text)
-				OnGoalRightPinCode.Invoke();
-			else {
-			
-				OnGoalWrongPinCode.Invoke();
-			}
+			OnCheckPinCode.Invoke(GameController.Password == outputText.text);
 			break;
 
 		}
         // DON'T FOGGET TO ADD YOUR VIRTUAL BUTTON 
 		// TO LIST IN GAME MANAGER!!!
         OnGoalChangeText.Invoke();
-		Debug.Log ("Invoke after switch");
     }
 
-    public void OnButtonReleased(VirtualButtonBehaviour vb)
-    {
-        
-
-    }
+    public void OnButtonReleased(VirtualButtonBehaviour vb){}
 }
