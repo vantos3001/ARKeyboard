@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour {
 
     //private VirtualButtonHandler virtualButtonHandlerLists;
 	// Use this for initialization
-	void Start () {
+	private void Start () {
         gameDataManager = FindObjectOfType<GameDataManager>();
         outputTextDisplay.text = gameDataManager.GetOutputString();
 		ChangePinCodeText ();
@@ -61,7 +61,7 @@ public class GameController : MonoBehaviour {
 
 	// DON'T FOGGET TO ADD YOUR VIRTUAL BUTTON 
 	// TO LIST IN GAME MANAGER!!!
-    void ChangeText()
+    private void ChangeText()
     {			
         gameDataManager.SubmitNewOutputText(outputTextDisplay);
         outputTextDisplay.text = gameDataManager.GetOutputString();
@@ -69,7 +69,7 @@ public class GameController : MonoBehaviour {
 
     }
 
-	void ChangePinCodeText(){
+	private void ChangePinCodeText(){
 		// pin code string
 		int length = outputTextDisplay.text.Length;
 		// calculate amount of "*"
