@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using Vuforia;
 
-// Stable version 0.2
+// Stable version 0.6
 
 
 public class GameController : MonoBehaviour {
