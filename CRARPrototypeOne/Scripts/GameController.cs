@@ -44,8 +44,6 @@ public class GameController : MonoBehaviour {
             VirtualButtonHandler vbt = vb.GetComponent<VirtualButtonHandler>();
             vbt.OnGoalChangeText.AddListener(ChangeText);
 			if (vbt.CurStateVirtualButton == VirtualButtonState.CHECK) {
-				//vbt.OnGoalRightPinCode.AddListener (RightPinCode);
-				//vbt.OnGoalWrongPinCode.AddListener (WrongPinCode);
 				vbt.OnCheckPinCode += CheckPinCode;
 
 			}
@@ -54,12 +52,6 @@ public class GameController : MonoBehaviour {
 
     }
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-
 	// DON'T FOGGET TO ADD YOUR VIRTUAL BUTTON 
 	// TO LIST IN GAME MANAGER!!!
     private void ChangeText()
@@ -83,17 +75,6 @@ public class GameController : MonoBehaviour {
 
 	}
 
-//	private void RightPinCode(){
-//		outputTextDisplay.text = "RIGHT!";
-//		Invoke ("ClearOutPutTextDisplay", 1.5f);
-//	}
-
-//	private void WrongPinCode(){
-//		outputTextDisplay.text = "WRONG!";
-//		Invoke ("ClearOutPutTextDisplay", 1.5f);
-//		Debug.Log ("WrongPinCode");
-//	}
-
 	private void CheckPinCode(bool isRightCode)
 	{
 		outputTextDisplay.text = isRightCode ? "RIGHT!" : "WRONG!";
@@ -103,9 +84,5 @@ public class GameController : MonoBehaviour {
 	private void ClearOutPutTextDisplay(){
 		outputTextDisplay.text = "Lol";
 		pinCodeText.text = "Lol";
-		Debug.Log ("ClearOutPutTextDisplay");
 	}
-
-
-
 }
