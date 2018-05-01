@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class GameDataManager : MonoBehaviour {
 
-    private PlayerProgress playerProgress;
+    private PlayerProgress _playerProgress;
 
 	// Use this for initialization
 	public void Awake () {
@@ -17,34 +17,34 @@ public class GameDataManager : MonoBehaviour {
     {
         if (newOutputText.text.Length > 18)
         {
-            playerProgress.outputString = "None";
+            _playerProgress.outputString = "None";
             newOutputText.text = "None";
             SavePlayerProgress();
         }
-        if (newOutputText.text != playerProgress.outputString)
+        if (newOutputText.text != _playerProgress.outputString)
         {
-            playerProgress.outputString = newOutputText.text;
+            _playerProgress.outputString = newOutputText.text;
             SavePlayerProgress();
         }
     }
     public string GetOutputString()
     {
-        return playerProgress.outputString;
+        return _playerProgress.outputString;
     }
 
     private void LoadPlayerProgress()
     {
-        playerProgress = new PlayerProgress();
+        _playerProgress = new PlayerProgress();
         
         if (PlayerPrefs.HasKey("outputString"))
         {
-            playerProgress.outputString = PlayerPrefs.GetString("outputString");
+            _playerProgress.outputString = PlayerPrefs.GetString("outputString");
         }
     }
     
     private void SavePlayerProgress()
     {
-        PlayerPrefs.SetString("outputString", playerProgress.outputString);
+        PlayerPrefs.SetString("outputString", _playerProgress.outputString);
     }
 
 	public static string LoadAssetText(TextAsset textAsset){

@@ -7,11 +7,11 @@ using UnityEngine.Networking;
 public class DownloadManager : MonoBehaviour
 {
 
-    private string downloadPassword;
+    private string _downloadPassword;
 
     public string DownloadPassword
     {
-        get { return downloadPassword; }
+        get { return _downloadPassword; }
     }
     
     private void Start()
@@ -51,7 +51,7 @@ public class DownloadManager : MonoBehaviour
         subString = subString.Substring(startSubIndex + 1);
         subString = subString.Trim();
 
-        downloadPassword = subString;
+        _downloadPassword = subString;
     }
 
          

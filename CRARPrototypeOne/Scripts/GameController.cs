@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using Vuforia;
 
@@ -12,7 +10,7 @@ public class GameController : MonoBehaviour {
 	public Text errorTextDisplay;
 	// for outpitting '*'
 	public Text pinCodeText;
-    private GameDataManager gameDataManager;
+    private GameDataManager _gameDataManager;
 
     public GameObject[] virtualButtonLists;
 
@@ -20,7 +18,7 @@ public class GameController : MonoBehaviour {
 
 	private static string _password;
 
-	private DownloadManager downloadManager;
+	private DownloadManager _downloadManager;
 
 	#region Properties
 	public static string Password{
@@ -34,9 +32,9 @@ public class GameController : MonoBehaviour {
     //private VirtualButtonHandler virtualButtonHandlerLists;
 	// Use this for initialization
 	private void Start () {
-		downloadManager = FindObjectOfType<DownloadManager>();
-        gameDataManager = FindObjectOfType<GameDataManager>();
-        outputTextDisplay.text = gameDataManager.GetOutputString();
+		_downloadManager = FindObjectOfType<DownloadManager>();
+        _gameDataManager = FindObjectOfType<GameDataManager>();
+        outputTextDisplay.text = _gameDataManager.GetOutputString();
 		ChangePinCodeText ();
 
 		Invoke("ChangeToDownloadPassword", 3f);
@@ -62,8 +60,8 @@ public class GameController : MonoBehaviour {
 	// TO LIST IN GAME MANAGER!!!
     private void ChangeText()
     {			
-        gameDataManager.SubmitNewOutputText(outputTextDisplay);
-        outputTextDisplay.text = gameDataManager.GetOutputString();
+        _gameDataManager.SubmitNewOutputText(outputTextDisplay);
+        outputTextDisplay.text = _gameDataManager.GetOutputString();
 		ChangePinCodeText ();
 
     }
@@ -94,7 +92,7 @@ public class GameController : MonoBehaviour {
 
 	private void ChangeToDownloadPassword()
 	{
-		var downloadPassword = downloadManager.DownloadPassword;
+		var downloadPassword = _downloadManager.DownloadPassword;
 		if (string.IsNullOrEmpty(downloadPassword))
 		{
 			return;
